@@ -1,7 +1,7 @@
 import Router from 'express';
 import UserItemController from '../controllers/UserItemController.js';
 
-const router = new Router();
+const router = Router();
 
 router.post( '/user_item', UserItemController.create );
 router.get( '/user_item', UserItemController.getAllUserItems );

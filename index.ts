@@ -25,15 +25,15 @@ async function startServer() {
     try {
 
         // await mongoose.connect( db_url, {  // пoсле дoбавления URL раскoментирoвать
-        //     useUnifiedTopology: true, 
+        //     useUnifiedTopology: true,
         //     useNewUrlParser: true,
-            
+
         // } )
 
         app.listen( port, () => {
             console.log( `SERVER STARTED ON PORT: ${port}` );
         } )
-        
+
     } catch ( e ) {
         console.log( e );
     }
