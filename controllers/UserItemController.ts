@@ -1,9 +1,10 @@
+import {Request, Response} from 'express'
 import UserItem from '../db_schem/UserItem.js'
 
 
 class UserItemController {
 
-    async create( req, res ) {
+    async create( req: Request, res: Response ) {
         try {
             const {
                 name,
@@ -23,7 +24,7 @@ class UserItemController {
         }
     }
 
-    async getAllUserItems( req, res ) {
+    async getAllUserItems( req: Request, res: Response ) {
         try {
             const userItem = await UserItem.find();
             return res.json( userItem );
@@ -32,7 +33,7 @@ class UserItemController {
         }
     }
 
-    async updateUserItems( req, res ) {
+    async updateUserItems( req: Request, res: Response ) {
         try {
             const { id: _id } = req.params
             const { name,
@@ -49,7 +50,7 @@ class UserItemController {
             UserItem.findByIdAndUpdate(
                 _id,
                 userItem,
-                ( err, updatedUserItems ) => {
+                ( err: any, updatedUserItems: any ) => { //TODO: надо посмотреть в типах монгуса
                   if ( err ) {
                     res.json( {
                       userItem,
@@ -70,7 +71,7 @@ class UserItemController {
         }
     }
     
-    async deleteUserItems( req, res ) {
+    async deleteUserItems( req: Request, res: Response ) {
         try {
             const { id } = req.params
             console.log( id );
